@@ -81,28 +81,7 @@ namespace block
 
         public void Filter()
         {
-            ObservableCollection<BSX> newBlocks = new ObservableCollection<BSX>();
-            //Blokkok.Clear();
-            //var newlist = Blokkok.Select(x => x).Where(x => x.ItemName.StartsWith(tbNev.Text));
-            foreach (var item in Blokkok)
-            {
-                if (item.Itemname.StartsWith(tbNev.Text))
-                {
-                    String Id = item.Id;
-                    String ItemName = item.Itemname;
-                    String CategoryName = item.Categoryname;
-                    String ColorName = item.Colorname;
-                    String Qty = item.Qty.ToString();
-
-                    BSX bs = new BSX(Id, ItemName, CategoryName, ColorName, Convert.ToInt32(Qty));
-                    newBlocks.Add(bs);
-                }
-                else if(tbNev.Text == "")
-                {
-                    dtgAdatok.ItemsSource = Blokkok;
-                }
-            }
-            dtgAdatok.ItemsSource = newBlocks;
+            dtgAdatok.ItemsSource = Blokkok.Select(x => x).Where(x => tbNev.Text != "" ? x.Itemname.ToLower().StartsWith(tbNev.Text.ToLower()) : true && tbId.Text != "" ? x.Id.StartsWith(tbId.Text) : true );
         }
 
     }

@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.RowSpan="3" Background="LightBlue">
+            <TextBox x:Name="tbNev" Margin="10px" TextChanged="tbNev_TextChanged"></TextBox>
+            <TextBox x:Name="tbId" Margin="10px" TextChanged="tbAzon_TextChanged"></TextBox>
+            <ComboBox x:Name="tbCategory" SelectionChanged="tbCategory_SelectionChanged"></ComboBox>
+            <Button Click="Button_Click">Load File</Button>
+        </StackPanel>
+        <DataGrid x:Name="dtgAdatok" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Background="LightGoldenrodYellow"></DataGrid>
+        
     </Grid>
 </Window>

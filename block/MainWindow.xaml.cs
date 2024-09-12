@@ -53,7 +53,7 @@ namespace block
                             
                     }
                     dtgAdatok.ItemsSource = Blokkok;
-                    tbCategory.ItemsSource = Blokkok.Select(x => x.CategoryName).Distinct().ToList();
+                    tbCategory.ItemsSource = Blokkok.Select(x => x.Categoryname).Distinct().ToList();
                     break;
                 }
                 else
@@ -86,12 +86,12 @@ namespace block
             //var newlist = Blokkok.Select(x => x).Where(x => x.ItemName.StartsWith(tbNev.Text));
             foreach (var item in Blokkok)
             {
-                if (item.ItemName.StartsWith(tbNev.Text))
+                if (item.Itemname.StartsWith(tbNev.Text))
                 {
-                    String Id = item.ItemID;
-                    String ItemName = item.ItemName;
-                    String CategoryName = item.CategoryName;
-                    String ColorName = item.ColorName;
+                    String Id = item.Id;
+                    String ItemName = item.Itemname;
+                    String CategoryName = item.Categoryname;
+                    String ColorName = item.Colorname;
                     String Qty = item.Qty.ToString();
 
                     BSX bs = new BSX(Id, ItemName, CategoryName, ColorName, Convert.ToInt32(Qty));
